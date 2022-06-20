@@ -22,11 +22,11 @@ public class WordSelector {
     public void createWordsArray() throws IOException {
         BufferedReader bf = new BufferedReader(new FileReader("src/hangman/words.txt"));
 
-        String Word = bf.readLine();
+        String word = bf.readLine();
 
-        while (Word != null) {
-            words.add(Word);
-            Word = bf.readLine();
+        while (word != null) {
+            words.add(word);
+            word = bf.readLine();
         }
 
         bf.close();
