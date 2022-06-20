@@ -11,14 +11,6 @@ public class WordSelector {
     ArrayList<String> words = new ArrayList<>();
 
 
-    public ArrayList<String> getWords() {
-        return words;
-    }
-
-    public void setWords(ArrayList<String> words) {
-        this.words = words;
-    }
-
     public void createWordsArray() throws IOException {
         BufferedReader bf = new BufferedReader(new FileReader("src/hangman/words.txt"));
 
@@ -38,11 +30,5 @@ public class WordSelector {
         return words.get(rand.nextInt(words.size())).toUpperCase();
     }
 
-
-    public static void main(String[] args) throws IOException {
-        WordSelector wordSelector = new WordSelector();
-        wordSelector.createWordsArray();
-        System.out.println(wordSelector.wordSelector());
-    }
 
 }
