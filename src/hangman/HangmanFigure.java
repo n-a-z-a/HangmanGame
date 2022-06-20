@@ -1,18 +1,19 @@
 package hangman;
 
-import java.util.ArrayList;
+public class HangmanFigure {
 
-public class HangmanPicture {
+    private String[] hangmanFigure = {
+            "\n \n \n \n \n \n ____|____",
+            "\n     |\n     |\n     |\n     |\n     |\n ____|____",
+            "     _______\n     |\n     |\n     |\n     |\n     |\n ____|____",
+            "     _______\n     |     |\n     |    ( )\n     |\n     |\n     |\n ____|____",
+            "     _______\n     |     |\n     |    ( )\n     |    /|\\ \n     |\n     |\n ____|____",
+            "     _______\n     |     |\n     |    ( )\n     |    /|\\ \n     |     |\n     |\n ____|____",
+            "     _______\n     |     |\n     |    ( )\n     |    /|\\ \n     |     |\n     |    / \\\n ____|____"
+    };
 
-    private ArrayList<String> hangmanPicture = new ArrayList<String>();
-
-    public ArrayList<String> getHangmanPicture() {
-        return hangmanPicture;
+    public String getHangmanFigure(int index) {
+        return hangmanFigure[index];
     }
-
-    public void setHangmanPicture(ArrayList<String> hangmanPicture) {
-        this.hangmanPicture = hangmanPicture;
-    }
-
 
 }

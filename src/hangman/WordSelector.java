@@ -1,2 +1,48 @@
-package hangman;public class WordSelector {
+package hangman;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Random;
+
+public class WordSelector {
+
+    ArrayList<String> words = new ArrayList<>();
+
+
+    public ArrayList<String> getWords() {
+        return words;
+    }
+
+    public void setWords(ArrayList<String> words) {
+        this.words = words;
+    }
+
+    public void createWordsArray() throws IOException {
+        BufferedReader bf = new BufferedReader(new FileReader("src/hangman/words.txt"));
+
+        String Word = bf.readLine();
+
+        while (Word != null) {
+            words.add(Word);
+            Word = bf.readLine();
+        }
+
+        bf.close();
+
+    }
+
+    public String wordSelector() {
+        Random rand = new Random();
+        return words.get(rand.nextInt(words.size())).toUpperCase();
+    }
+
+
+    public static void main(String[] args) throws IOException {
+        WordSelector wordSelector = new WordSelector();
+        wordSelector.createWordsArray();
+        System.out.println(wordSelector.wordSelector());
+    }
+
 }
