@@ -4,11 +4,12 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class WordSelector {
 
-    ArrayList<String> words = new ArrayList<>();
+   List<String> words = new ArrayList<>();
 
 
     public void createWordsArray() throws IOException {

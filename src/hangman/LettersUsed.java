@@ -1,14 +1,16 @@
 package hangman;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 public class LettersUsed {
 
 
-    ArrayList<String> lettersUsed = new ArrayList<String>();
+    Set<String> lettersUsed = new HashSet<>();
 
 
-    public ArrayList<String> getLettersUsed() {
+    public Set<String> getLettersUsed() {
         return lettersUsed;
     }
 

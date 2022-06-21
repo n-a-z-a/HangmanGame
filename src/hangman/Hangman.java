@@ -10,6 +10,18 @@ public class Hangman {
     HangmanFigure hangmanFigure = new HangmanFigure();
 
 
+    private boolean isLetterAlreadyUsed(String letter) {
+        return this.lettersUsed.getLettersUsed().contains(letter);
+    }
+
+    private void addLetterUsed (String letterUsed) {
+        this.lettersUsed.getLettersUsed().add(letterUsed);
+    }
+
+    private boolean isEmpty() {
+        return this.lettersUsed.getLettersUsed().isEmpty();
+    }
+
 
     public void play() throws IOException {
         System.out.println("Welcome to Hangman!");
@@ -28,7 +40,7 @@ public class Hangman {
             String letter = scanner.nextLine().replace(" ", "").toUpperCase();
             if (letter.length() != 1 || !letter.matches("^[A-Za-z]")) {
                 System.out.println("Please enter one valid letter:");
-            } else if (!lettersUsed.getLettersUsed().isEmpty() && lettersUsed.getLettersUsed().contains(letter)) {
+            } else if (!isEmpty() && isLetterAlreadyUsed(letter)) {
                 System.out.println("You've already entered this letter! Please enter a new one:");
             } else if (word.contains(letter)) {
                 for (int i = 0; i < word.length(); i++) {
@@ -38,7 +50,7 @@ public class Hangman {
                 }
                 System.out.println(wordHidden);
                 if (word.compareTo(String.valueOf(wordHidden)) != 0) {
-                    lettersUsed.getLettersUsed().add(letter);
+                    addLetterUsed(letter);
                     System.out.println("Please enter a letter:");
                 } else {
                     System.out.println("Congratulations! You win!");
@@ -46,7 +58,7 @@ public class Hangman {
                     break;
                 }
             } else {
-                lettersUsed.getLettersUsed().add(letter);
+                addLetterUsed(letter);
                 System.out.println(hangmanFigure.getHangmanFigure(currentHangmanFigureIndex));
                 currentHangmanFigureIndex++;
                 lives--;
